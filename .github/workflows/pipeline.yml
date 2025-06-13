@@ -17,6 +17,8 @@ jobs:
     # if: ${{ github.event_name == 'pull_request'}}
 
     steps:
+      -  name: Checkout code
+         uses: actions/checkout@v3
 
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
