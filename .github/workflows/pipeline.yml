@@ -25,6 +25,14 @@ jobs:
         
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
+        with:
+          instance-url: ${{ secrets.SN_INSTANCE_URL }}
+          client-id: ${{ secrets.SN_CLIENT_ID }}
+          client-secret: ${{ secrets.SN_CLIENT_SECRET }}
+          username: ${{ secrets.SN_USERNAME }}
+          password: ${{ secrets.SN_PASSWORD }}
+          application-scope: your_app_scope
+          changeset-name: your_changeset_name
         env:
           nowUsername: 'gitHubUser'
           nowPassword: 'Password@123'
