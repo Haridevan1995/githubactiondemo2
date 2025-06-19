@@ -19,9 +19,6 @@ jobs:
     steps:
       -  name: Checkout code
          uses: actions/checkout@v3
-         
-      - name: DNS Test
-        run: nslookup ${{ secrets.SN_DEV_INSTANCE }}
         
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
