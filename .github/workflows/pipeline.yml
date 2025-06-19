@@ -19,14 +19,17 @@ jobs:
     steps:
       -  name: Checkout code
          uses: actions/checkout@v3
-
+         
+      - name: DNS Test
+        run: nslookup ${{ secrets.SN_DEV_INSTANCE }}
+        
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
         env:
-          nowUsername: gitHubUser
-          nowPassword: Password@123
-          nowSourceInstance: dev296293.service-now.com
-          appSysID: 474f90ddc38ae6107152d8ec050131b5
+          nowUsername: 'gitHubUser'
+          nowPassword: 'Password@123'
+          nowSourceInstance: 'dev296293.service-now.com'
+          appSysID: '474f90ddc38ae6107152d8ec050131b5'
 
       - name: ServiceNow CI/CD Publish App
         id: publish_app
