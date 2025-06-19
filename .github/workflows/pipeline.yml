@@ -22,6 +22,15 @@ jobs:
          
       - name: DNS Test
         run: nslookup ${{ secrets.SN_DEV_INSTANCE }}
+
+      - name: ServiceNow CI/CD Register App
+        if: ${{ always() }}
+        uses: ServiceNow/sncicd-register-app@2.0.0
+        env:
+          nowUsername: "gitHubUser"
+          nowPassword: "Password@123"
+          nowSourceInstance: "dev296293"
+          appSysID: "474f90ddc38ae6107152d8ec050131b5"
         
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
