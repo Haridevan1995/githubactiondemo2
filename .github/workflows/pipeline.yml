@@ -25,7 +25,7 @@ jobs:
         
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
-        with:
+        env:
           nowUsername: 'gitHubUser'
           nowPassword: 'Password@123'
           nowSourceInstance: 'dev296293.service-now.com'
